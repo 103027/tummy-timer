@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pdb
+
+# Virtual environment
+venv/
+ENV/
+env/
+.venv/
+
+# Environment variables
+.env
+*.env
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Compiled files
+*.so
+*.out
+*.o
+
+# Flask-specific
+instance/
+.mypy_cache/
+coverage/
+htmlcov/
+
+# IDEs
+.vscode/
+.idea/
+
+# Pip
+pip-wheel-metadata/
+*.egg-info/
+dist/
+build/
+
+# Jupyter (if used for testing)
+.ipynb_checkpoints/
+
+# Docker (optional)
+docker-compose.override.yml
+
+# Testing
+.tox/
+.nox/
+.pytest_cache/
+
+# MongoDB dump (optional if you do backups)
+dump/

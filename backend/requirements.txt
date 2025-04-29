@@ -1,0 +1,6 @@
+flask
+paho-mqtt
+flask-cors
+flask-pymongo
+pandas
+prophet
