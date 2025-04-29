@@ -47,7 +47,7 @@ const LiveFoodBowlStatus = () => {
                 <div className="flex items-center">
                   <span className="text-sm font-medium text-tummy-green-dark mr-2">Yes</span>
                   <div className="relative">
-                    <div className="absolute -inset-1 rounded-full bg-tummy-green animate-pulse opacity-40"></div>
+                    <div className="absolute -inset-1 rounded-full bg-green-500 animate-pulse opacity-40"></div>
                     <div className="relative w-3 h-3 bg-tummy-green-dark rounded-full"></div>
                   </div>
                 </div>

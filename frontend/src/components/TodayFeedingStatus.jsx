@@ -17,7 +17,7 @@ const TodayFeedingStatus = () => {
         <div className="space-y-4">
           {/* Fed Today or Not */}
           <div className="flex items-center space-x-2">
-            <div className={`w-4 h-4 rounded-full ${isFedToday ? 'bg-tummy-green' : 'bg-tummy-red'}`}></div>
+            <div className={`w-4 h-4 rounded-full ${isFedToday ? 'bg-green-500' : 'bg-red-500'}`}></div>
             <span className="font-medium">{isFedToday ? 'Fed Today' : 'Not Fed Today'}</span>
           </div>
           

@@ -12,7 +12,7 @@ const Index = () => {
       
       <main className="flex-1 p-6">
         <div className="max-w-7xl mx-auto space-y-6">
-          <h1 className="text-2xl font-bold text-gray-800">TummyTimer Dashboard</h1>
+          <h1 className="text-2xl font-bold text-gray-800">Dashboard</h1>
           
           {/* Top Row - Status Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
