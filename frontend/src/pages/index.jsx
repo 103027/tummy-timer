@@ -4,6 +4,7 @@ import FeedingHistoryTable from '@/components/FeedingHistoryTable';
 import TodayFeedingStatus from '@/components/TodayFeedingStatus';
 import FutureFeedingPredictions from '@/components/FutureFeedingPredictions';
 import LiveFoodBowlStatus from '@/components/LiveFoodBowlStatus';
+import FeedingSchedule from '@/components/FeedingSchedule';
 
 const Index = () => {
   return (
@@ -22,6 +23,10 @@ const Index = () => {
             <div className="col-span-1 md:col-span-2">
               <LiveFoodBowlStatus />
             </div>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6">
+            <FeedingSchedule />
           </div>
           
           {/* Bottom Row - Tables */}

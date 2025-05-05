@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { 
   Table,
   TableBody,
@@ -9,14 +10,17 @@ import {
 } from "@/components/ui/table";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-// Sample data for demonstration
-const futureFeedingData = [
-  { id: 1, time: "06:00 PM", confidence: 95 },
-  { id: 2, time: "08:00 AM (Tomorrow)", confidence: 92 },
-  { id: 3, time: "12:30 PM (Tomorrow)", confidence: 88 },
-];
-
 const FutureFeedingPredictions = () => {
+  const [predictions, setPredictions] = useState([]);
+
+  useEffect(() => {
+    axios.get("http://127.0.0.1:5001/predict/next-feeding")
+      .then((res) => {
+        setPredictions(res.data || []);
+      })
+      .catch((err) => console.error("Error fetching predictions:", err));
+  }, []);
+
   return (
     <Card className="h-full">
       <CardHeader className="pb-2">
@@ -32,9 +36,9 @@ const FutureFeedingPredictions = () => {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {futureFeedingData.map((feeding) => (
-                <TableRow key={feeding.id}>
-                  <TableCell>{feeding.time}</TableCell>
+              {predictions.map((feeding, index) => (
+                <TableRow key={index}>
+                  <TableCell>{feeding.predicted_time}</TableCell>
                   <TableCell className="text-right">
                     <div className="flex items-center justify-end gap-2">
                       <div className="w-24 h-2 bg-gray-100 rounded-full overflow-hidden">
