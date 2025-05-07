@@ -1,7 +1,8 @@
 # models.py
 
 from db import mongo
-
+from schedule_manager import get_schedule
+from mqtt_client import publish_updated_schedule
 from datetime import datetime, timedelta
 
 
@@ -51,6 +52,30 @@ def get_latest_data():
     # Get all sensor data sorted by timestamp
     data_list = []
     cursor = mongo.db.sensor_data.find().sort("timestamp", -1)
+
+
+    sensor_timestamp = datetime.strptime(cursor[0]["timestamp"], "%Y-%m-%d %H:%M:%S")
+
+    # Get today's date
+    today = datetime.now().date()
+    sensor_date = sensor_timestamp.date()
+    sensor_time = sensor_timestamp.time()
+
+    schedules = get_schedule()
+    print("first",schedules)
+
+    for schedule in schedules:
+        start = datetime.strptime(schedule["startTime"], "%H:%M").time()
+        end = datetime.strptime(schedule["endTime"], "%H:%M").time()
+        
+        if sensor_date == today and start <= sensor_time <= end:
+            # Check if today’s day name is in schedule days
+            today_day_name = today.strftime("%a")  # e.g., 'Wed'
+            if today_day_name in schedule["days"]:
+                schedule["flag"] = True
+            publish_updated_schedule(schedule)
+
+    print(schedules)
     
     for doc in cursor:
         timestamp_str = doc.get("timestamp")

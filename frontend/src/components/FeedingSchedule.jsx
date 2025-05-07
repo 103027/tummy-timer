@@ -14,6 +14,7 @@ const FeedingSchedule = () => {
     startTime: "08:00",
     endTime: "09:00",
     portions: 1,
+    flag: false,
     days: []
   });
   const [statusMessage, setStatusMessage] = useState("");
@@ -50,6 +51,7 @@ const FeedingSchedule = () => {
         startTime: newSchedule.startTime,
         endTime: newSchedule.endTime,
         portion: newSchedule.portions,
+        flag : false,
         days: newSchedule.days && newSchedule.days.length ? newSchedule.days : daysOfWeek
       };
 
@@ -64,6 +66,7 @@ const FeedingSchedule = () => {
             startTime: "08:00",
             endTime: "09:00",
             portions: 1,
+            flag: false,
             days: []
           });
       })
