@@ -4,17 +4,10 @@ from db import mongo
 from bson.objectid import ObjectId
 
 def get_schedule():
-    """
-    Retrieve all feeding schedules from the database.
-    
-    Returns:
-        list: List of schedule documents with ObjectId converted to string
-    """
     schedules_list = []
     cursor = mongo.db.schedules.find().sort("_id", DESCENDING)
     
     for schedule in cursor:
-        # Convert ObjectId to string to make it JSON serializable
         schedule["_id"] = str(schedule["_id"])
         schedules_list.append(schedule)
     

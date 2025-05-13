@@ -36,7 +36,7 @@ const FeedingHistoryTable = () => {
         <CardTitle>Feeding History</CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="overflow-x-auto">
+        <div className="h-64 overflow-y-auto">
           <Table>
             <TableHeader>
               <TableRow>
